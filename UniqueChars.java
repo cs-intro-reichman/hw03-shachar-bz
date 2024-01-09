@@ -11,7 +11,23 @@ public class UniqueChars {
      * unless they are space characters.
      */
     public static String uniqueChars(String s) {
-        // Replace the following statement with your code
-        return null;
+        String unique = "";
+        for(int i1 = 0; i1 < s.length(); i1++){
+            boolean duplicate = false;
+            char c = s.charAt(i1);
+            int i2 = 0;
+            while ( duplicate == false && i2 < unique.length()){
+                if(unique.charAt(i2) == c && c != ' '){ 
+                    duplicate = true;
+                }
+                i2++;
+            }
+
+            // add the char to the new string if he didnt show up already
+            if(duplicate == false){
+                unique += c;
+            }
+        }
+        return unique;
     }
 }

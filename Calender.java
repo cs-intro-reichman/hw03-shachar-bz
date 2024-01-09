@@ -1,7 +1,7 @@
 /** 
  * Prints the calendars of all the years in the 20th century.
  */
-public class Calendar1 {	
+public class Calender {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
@@ -10,28 +10,23 @@ public class Calendar1 {
 	static int nDaysInMonth = 31; // Number of days in January
 	
 	public static void main(String args[]) {
-		
-	    int debugDaysCounter = 0; 
-		int countFirst = 0;
-	    
-	 	while (year < 2000) {
-			// print days with or without sunday
-	 		if(dayOfWeek % 7 == 1){
-				System.out.println(dayOfMonth + "/" + month + "/" + year + " sunday");
-				// compute if the first day of mouth is sunday
-				if(dayOfMonth == 1){
-					countFirst++;
-				}
-			}
-			else{
-				System.out.println(dayOfMonth + "/" + month + "/" + year);
-			}
-			debugDaysCounter++;
+        
+	    int clientYear = Integer.parseInt(args[0]);
+	 	while (year < clientYear) {
 			advance();
         }
-		System.out.println("During the 20th century, " + countFirst + " Sundays fell on the first day of the month");
-	 	System.out.println(debugDaysCounter);
-	 }
+        
+		while (year <= clientYear){
+			if(dayOfWeek % 7 == 1){
+				System.out.println(dayOfMonth + "/" + month + "/" + year + " sunday");
+				}
+
+			else{
+				System.out.println(dayOfMonth + "/" + month + "/" + year);
+				}
+			advance();
+	 	}
+	}
 	
 	 private static void advance() {
 		// add one day to month
@@ -105,5 +100,5 @@ public class Calendar1 {
 	}
 	return numOfDay;
 	}
-}
+}	
 
